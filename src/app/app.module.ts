@@ -29,6 +29,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { TablaComponent } from './components/tabla/tabla.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 
 
@@ -45,7 +49,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     TipoSolicitudComponent,
     MenuComponent,
     TableroSensoresComponent,
-    FormularioComponent
+    FormularioComponent,
+    TablaComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +69,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatSelectModule,
     MatRadioModule,
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
    
   ],
   providers: [],
