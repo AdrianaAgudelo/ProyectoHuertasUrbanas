@@ -1,0 +1,28 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.container{
+  margin: 40px;
+
+}
+
+.myAvatar /deep/ .avatar-content {
+  background-color : rgb(179, 213, 230) !important;
+ position: relative; 
+ left: 1500px;
+}
