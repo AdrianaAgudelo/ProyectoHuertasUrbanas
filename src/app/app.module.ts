@@ -33,6 +33,14 @@ import { TablaComponent } from './components/tabla/tabla.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { HttpClientModule } from '@angular/common/http';
+import { AvatarModule } from 'ngx-avatar';
+import { ServicesComponent } from './services/services.component';
+import { AsignacionSensor1Component } from './Components/asignacion-sensor1/asignacion-sensor1.component';
+import { Mediciones1Component } from './Components/mediciones1/mediciones1.component';
+import { Sensores1Component } from './Components/sensores1/sensores1.component';
+import { Solicitudes1Component } from './Components/solicitudes1/solicitudes1.component';
+import { Usuario1Component } from './Components/usuario1/usuario1.component';
 
 
 
@@ -50,7 +58,13 @@ import { MatSortModule } from '@angular/material/sort';
     MenuComponent,
     TableroSensoresComponent,
     FormularioComponent,
-    TablaComponent
+    TablaComponent,
+    ServicesComponent,
+    AsignacionSensor1Component,
+    Mediciones1Component,
+    Sensores1Component,
+    Solicitudes1Component,
+    Usuario1Component
   ],
   imports: [
     BrowserModule,
@@ -72,7 +86,9 @@ import { MatSortModule } from '@angular/material/sort';
     MatFormFieldModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    HttpClientModule,
+    AvatarModule
    
   ],
   providers: [],

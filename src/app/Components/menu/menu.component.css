@@ -20,3 +20,9 @@
   margin: 40px;
 
 }
+
+.myAvatar /deep/ .avatar-content {
+  background-color : rgb(179, 213, 230) !important;
+ position: relative; 
+ left: 700px;
+}
