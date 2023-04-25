@@ -17,18 +17,19 @@ export class Usuario1Component implements OnInit{
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(public api:APIService){
-    this.dataSource=new MatTableDataSource
+    this.dataSource=new MatTableDataSource()
   }
 
   ngOnInit(): void {
     this.getUsuario();
   }
-
+response:any
   public async getUsuario(){
     await this.api.get("Usuarios").then((res)=>{
       this.loadTable([res[0]])
-      this.dataSource.data=res
+      this.response=res
     })
+    this.dataSource.data=this.response
     // console.log(response);
     this.dataSource.paginator=this.paginator;
     this.dataSource.sort=this.sort;

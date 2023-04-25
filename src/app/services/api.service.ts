@@ -8,7 +8,7 @@ export class APIService {
 
   constructor(public http: HttpClient) { }
   
-  url="https://localhost:7276/api/"
+  url="https://localhost:7163/api/"
   
   public async get(controlador:string){
     var response:any
