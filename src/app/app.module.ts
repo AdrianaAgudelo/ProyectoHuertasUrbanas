@@ -23,13 +23,13 @@ import { TableroSensoresComponent } from './Components/tablero-sensores/tablero-
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-import { FormularioComponent } from './components/formulario/formulario.component';
+//import { FormularioComponent } from './components/formulario/formulario.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { TablaComponent } from './components/tabla/tabla.component';
+//import { TablaComponent } from './components/tabla/tabla.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -41,6 +41,10 @@ import { Mediciones1Component } from './Components/mediciones1/mediciones1.compo
 import { Sensores1Component } from './Components/sensores1/sensores1.component';
 import { Solicitudes1Component } from './Components/solicitudes1/solicitudes1.component';
 import { Usuario1Component } from './Components/usuario1/usuario1.component';
+
+import {MatDialogModule} from '@angular/material/dialog';
+import { RegNuevoUsuarioComponent } from './Forms/reg-nuevo-usuario/reg-nuevo-usuario.component';
+
 
 
 
@@ -57,14 +61,17 @@ import { Usuario1Component } from './Components/usuario1/usuario1.component';
     TipoSolicitudComponent,
     MenuComponent,
     TableroSensoresComponent,
-    FormularioComponent,
-    TablaComponent,
+    //FormularioComponent,
+    //TablaComponent,
     ServicesComponent,
     AsignacionSensor1Component,
     Mediciones1Component,
     Sensores1Component,
     Solicitudes1Component,
-    Usuario1Component
+    Usuario1Component,
+    RegNuevoUsuarioComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -88,7 +95,9 @@ import { Usuario1Component } from './Components/usuario1/usuario1.component';
     MatPaginatorModule,
     MatSortModule,
     HttpClientModule,
-    AvatarModule
+    AvatarModule,
+    MatDialogModule,
+    
    
   ],
   providers: [],

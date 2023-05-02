@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { RegNuevoUsuarioComponent } from 'src/app/Forms/reg-nuevo-usuario/reg-nuevo-usuario.component';
 import { APIService } from 'src/app/services/api.service';
+
 
 @Component({
   selector: 'app-usuario1',
@@ -16,9 +19,14 @@ export class Usuario1Component implements OnInit{
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public api:APIService){
+  constructor(public api:APIService, public dialog: MatDialog){
     this.dataSource=new MatTableDataSource()
   }
+
+  openModal(){
+        const dialogRef = this.dialog.open(RegNuevoUsuarioComponent);
+  }
+
 
   ngOnInit(): void {
     this.getUsuario();

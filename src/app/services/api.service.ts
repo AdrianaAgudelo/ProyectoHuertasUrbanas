@@ -22,7 +22,7 @@ export class APIService {
 
   public async post(controlador:string, object:any){
     var response:any
-    await this.http.post(this.url+controlador, object).subscribe(res=>{
+    await this.http.post(this.url+controlador, object).toPromise().then(res=>{
       response=res
     }
     );
@@ -31,7 +31,7 @@ export class APIService {
 
   public async put(controlador:string, id:number, object:any){
     var response:any
-    await this.http.put(this.url+controlador+"/"+id, object).subscribe(res=>{
+    await this.http.put(this.url+controlador+"/"+id, object).toPromise().then(res=>{
       response=res
     }
     );
@@ -40,7 +40,7 @@ export class APIService {
 
   public async delete(controlador:string, id:number){
     var response:any
-    await this.http.delete(this.url+controlador+"/"+id).subscribe(res=>{
+    await this.http.delete(this.url+controlador+"/"+id).toPromise().then(res=>{
       response=res
     }
     );
