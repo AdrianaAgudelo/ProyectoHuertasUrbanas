@@ -8,6 +8,7 @@ import { Sensores1Component } from './Components/sensores1/sensores1.component';
 import { Solicitudes1Component } from './Components/solicitudes1/solicitudes1.component';
 import { Mediciones1Component } from './Components/mediciones1/mediciones1.component';
 import { RegNuevoUsuarioComponent } from './Forms/reg-nuevo-usuario/reg-nuevo-usuario.component';
+import { RegNuevoSensorComponent } from './Forms/reg-nuevo-sensor/reg-nuevo-sensor.component';
 //import { TablaComponent } from './components/tabla/tabla.component'
 // import { FormularioComponent } from './components/formulario/formulario.component';
 
@@ -39,7 +40,9 @@ const routes: Routes = [
 {
   path:'RegNuevoUsuario', component:RegNuevoUsuarioComponent
 },
-
+{
+  path:'RegNuevoSensor', component:RegNuevoSensorComponent
+},
 ];
 
 @NgModule({

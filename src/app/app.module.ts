@@ -44,6 +44,7 @@ import { Usuario1Component } from './Components/usuario1/usuario1.component';
 
 import {MatDialogModule} from '@angular/material/dialog';
 import { RegNuevoUsuarioComponent } from './Forms/reg-nuevo-usuario/reg-nuevo-usuario.component';
+import { RegNuevoSensorComponent } from './Forms/reg-nuevo-sensor/reg-nuevo-sensor.component';
 
 
 
@@ -70,6 +71,7 @@ import { RegNuevoUsuarioComponent } from './Forms/reg-nuevo-usuario/reg-nuevo-us
     Solicitudes1Component,
     Usuario1Component,
     RegNuevoUsuarioComponent,
+    RegNuevoSensorComponent,
     
     
   ],
