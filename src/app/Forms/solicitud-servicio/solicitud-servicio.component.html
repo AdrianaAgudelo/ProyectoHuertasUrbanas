@@ -1,0 +1,44 @@
+<form [formGroup]="SolicitudForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Solicitud de Servicio</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Id Usuario" formControlName="idUsuario">
+            <mat-error *ngIf="SolicitudForm.controls['idUsuario'].hasError('required')">
+              Id Usuario es <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Tipo Solicitud" formControlName="tipoSolicitud">
+          <mat-error *ngIf="SolicitudForm.controls['tipoSolicitud'].hasError('required')">
+            Tipo Solicitud es<strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="Descripción de Solicitud" formControlName="descripcionSolicitud"></textarea>
+            <mat-error *ngIf="SolicitudForm.controls['descripcionSolicitud'].hasError('required')">
+              Descripción de Solicitud es<strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+            
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Enviar</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

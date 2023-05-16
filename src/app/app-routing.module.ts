@@ -9,8 +9,9 @@ import { Solicitudes1Component } from './Components/solicitudes1/solicitudes1.co
 import { Mediciones1Component } from './Components/mediciones1/mediciones1.component';
 import { RegNuevoUsuarioComponent } from './Forms/reg-nuevo-usuario/reg-nuevo-usuario.component';
 import { RegNuevoSensorComponent } from './Forms/reg-nuevo-sensor/reg-nuevo-sensor.component';
-//import { TablaComponent } from './components/tabla/tabla.component'
-// import { FormularioComponent } from './components/formulario/formulario.component';
+import { SolicitudServicioComponent } from './forms/solicitud-servicio/solicitud-servicio.component';
+
+
 
 const routes: Routes = [
 // {
@@ -43,6 +44,11 @@ const routes: Routes = [
 {
   path:'RegNuevoSensor', component:RegNuevoSensorComponent
 },
+{
+  path:'SolicitudServicio', component:SolicitudServicioComponent
+},
+
+
 ];
 
 @NgModule({
