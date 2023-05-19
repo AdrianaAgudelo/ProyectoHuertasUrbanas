@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SolicitudServicioComponent } from 'src/app/forms/solicitud-servicio/solicitud-servicio.component';
 
+
 import { APIService } from 'src/app/services/api.service';
 
 @Component({
@@ -28,6 +29,7 @@ export class Solicitudes1Component implements OnInit  {
 
   openModal(){
     const dialogRef = this.dialog.open(SolicitudServicioComponent);
+    const dialogRef1 = this.dialog.open(SolicitudServicioComponent);
 
       }
 
@@ -61,5 +63,6 @@ export class Solicitudes1Component implements OnInit  {
     }
   }
 
+  
 
 }
