@@ -5,6 +5,11 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import Swal from 'sweetalert2';
 import { Solicitudes1Component } from '../solicitudes1/solicitudes1.component';
+import { RegNuevoSensorComponent } from 'src/app/Forms/reg-nuevo-sensor/reg-nuevo-sensor.component';
+import { Usuario1Component } from '../usuario1/usuario1.component';
+import { RegNuevoUsuarioComponent } from 'src/app/Forms/reg-nuevo-usuario/reg-nuevo-usuario.component';
+import { SolicitudServicioComponent } from 'src/app/forms/solicitud-servicio/solicitud-servicio.component';
+import { FormsService } from 'src/app/services/forms.service';
 
 
 
@@ -17,14 +22,14 @@ import { Solicitudes1Component } from '../solicitudes1/solicitudes1.component';
 export class TableTemplateComponent implements AfterViewInit {
   @Input() displayedColumns: string[] = [];
   @Input() dataSource: MatTableDataSource<any>;
-  @Input() stickyEnd: String='Opciones';
+  @Input() component: String;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   /**
    *
    */
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, public forms:FormsService) {
     this.dataSource=new MatTableDataSource()
     
   }
@@ -44,13 +49,75 @@ export class TableTemplateComponent implements AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  delete (object: any){
+
+    console.log("delete")
+    Swal.fire({
+      title: 'Está seguro?',
+      text: "Esta acción no se puede revertir",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Borrar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Borrado!',
+          'El archivo fue eliminado con éxito',
+          'success'
+        )
+      }
+    })
+  }
+
+  edit(object: any){
+    
+
+
+    
+    Swal.fire(
+      'Desea modificar este elemento?',
+
+      
+      
+    ).then((result) => {
+      if (result.isConfirmed) {
+       
+        switch (this.component) {
+          case "usuario1":
+            this.forms.object=object;
+            this.forms.component.next("usuario1")
+           this.dialog.open(RegNuevoUsuarioComponent);
+            
+            break;
+          case "solicitudes1":
+            this.forms.object=object;
+            this.forms.component.next("solicitudes1")
+            this.dialog.open(SolicitudServicioComponent);
+            break;
+          case "sensores1":
+            this.forms.object=object;
+            this.forms.component.next("sensores1")
+            this.dialog.open(RegNuevoSensorComponent);
+            break;
+        
+          default:
+            break;
+        }
+      }
+    })
+    
+  }
+
 }
-function openModal() {
-  // throw new Error('Function not implemented.');
+// function openModal() {
+//   // throw new Error('Function not implemented.');
  
-    const dialogRef = this.dialog.open(Solicitudes1Component);
+//     const dialogRef = this.dialog.open(Solicitudes1Component);
 
    
   
-}
+// }
 

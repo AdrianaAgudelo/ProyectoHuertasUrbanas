@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormsService } from 'src/app/services/forms.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -7,7 +8,7 @@ import Swal from 'sweetalert2';
   templateUrl: './reg-nuevo-sensor.component.html',
   styleUrls: ['./reg-nuevo-sensor.component.css']
 })
-export class RegNuevoSensorComponent {
+export class RegNuevoSensorComponent implements OnInit {
   SensorForm = this.fb.group({
    
     marca: [null, Validators.required],
@@ -19,7 +20,16 @@ export class RegNuevoSensorComponent {
   hasUnitNumber = false;
 
   
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, public forms:FormsService) {}
+  ngOnInit(): void {
+    this.forms.component.subscribe((res)=>{
+      if(res==="sensores1"){
+        this.SensorForm.setControl("marca", new FormControl(this.forms.object.marca))
+        this.SensorForm.setControl("fechaFabricacion", new FormControl(this.forms.object.fechaFabricacion))
+        this.SensorForm.setControl("fechaFinVidaUtil", new FormControl(this.forms.object.fechaFinVidaUtil))
+      }
+    })
+  }
 
   onSubmit(): void {
     //alert('Thanks!');

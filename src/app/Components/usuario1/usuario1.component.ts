@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { RegNuevoUsuarioComponent } from 'src/app/Forms/reg-nuevo-usuario/reg-nuevo-usuario.component';
 import { APIService } from 'src/app/services/api.service';
+import { FormsService } from 'src/app/services/forms.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class Usuario1Component implements OnInit{
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public api:APIService, public dialog: MatDialog){
+  constructor(public api:APIService, public dialog: MatDialog, public forms: FormsService){
     this.dataSource=new MatTableDataSource()
   }
 
@@ -30,6 +31,7 @@ export class Usuario1Component implements OnInit{
 
   ngOnInit(): void {
     this.getUsuario();
+   
   }
  
 response:any

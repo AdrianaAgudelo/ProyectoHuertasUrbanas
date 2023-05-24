@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormsService } from 'src/app/services/forms.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -7,7 +8,7 @@ import Swal from 'sweetalert2';
   templateUrl: './solicitud-servicio.component.html',
   styleUrls: ['./solicitud-servicio.component.css']
 })
-export class SolicitudServicioComponent {
+export class SolicitudServicioComponent implements OnInit{
   SolicitudForm = this.fb.group({
     
     idUsuario: [null, Validators.required],
@@ -15,7 +16,16 @@ export class SolicitudServicioComponent {
     descripcionSolicitud: [null, Validators.required],
  });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, public forms:FormsService) {}
+  ngOnInit(): void {
+    this.forms.component.subscribe((res)=>{
+      if(res==="solicitudes1"){
+        this.SolicitudForm.setControl("idUsuario", new FormControl(this.forms.object.idUsuario))
+        this.SolicitudForm.setControl("tipoSolicitud", new FormControl(this.forms.object.tipoSolicitud))
+        this.SolicitudForm.setControl("descripcionSolicitud", new FormControl(this.forms.object.descripcionSolicitud))
+      }
+    })
+  }
 
   onSubmit(): void {
     //alert('Thanks!');

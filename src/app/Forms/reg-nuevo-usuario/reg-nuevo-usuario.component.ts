@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormsService } from 'src/app/services/forms.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -7,7 +8,7 @@ import Swal from 'sweetalert2';
   templateUrl: './reg-nuevo-usuario.component.html',
   styleUrls: ['./reg-nuevo-usuario.component.css']
 })
-export class RegNuevoUsuarioComponent {
+export class RegNuevoUsuarioComponent implements OnInit{
   UserForm = this.fb.group({
     nombre: [null, Validators.required],
     apellido: [null, Validators.required],
@@ -19,10 +20,20 @@ export class RegNuevoUsuarioComponent {
    
   });
 
+  constructor(private fb: FormBuilder, public forms:FormsService) {}
+  ngOnInit(): void {
+    this.forms.component.subscribe((res)=>{
+      if(res==="usuario1"){
+        this.UserForm.setControl("nombre",new FormControl(this.forms.object.nombres))
+        this.UserForm.setControl("apellido",new FormControl(this.forms.object.apellidos))
+        this.UserForm.setControl("tipoDocumento",new FormControl(this.forms.object.tipoDocumento))
+        this.UserForm.setControl("numDocumento",new FormControl(this.forms.object.numDocumento))
+        this.UserForm.setControl("direccion",new FormControl(this.forms.object.direccion)) 
+        this.UserForm.setControl("correo",new FormControl(this.forms.object.correo))
+      }
+    })
 
-
-
-  constructor(private fb: FormBuilder) {}
+  }
 
   onSubmit(): void {
     //alert('Thanks!');

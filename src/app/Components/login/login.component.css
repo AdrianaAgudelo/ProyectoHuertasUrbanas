@@ -1,9 +1,19 @@
 body {
-    background:url('http://cdn.wallpapersafari.com/13/6/Mpsg2b.jpg');
-    margin:0px;
+  background-color: rgb(69, 107, 4); 
+  background-image:url('https://images.unsplash.com/photo-1527690499469-ef2eff9c6735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80');
+    /* margin:0px; */
     font-family: 'Ubuntu', sans-serif;
-      background-size: 100% 110%;
+    background-size: contain;
+    /* background-repeat: no-repeat; */
   }
+  .body {
+    background-color: rgb(69, 107, 4); 
+    background-image:url('https://images.unsplash.com/photo-1527690499469-ef2eff9c6735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80');
+      /* margin:0px; */
+      font-family: 'Ubuntu', sans-serif;
+      background-size: contain;
+      /* background-repeat: no-repeat; */
+    }
   h1, h2, h3, h4, h5, h6, a {
     margin:0; padding:0;
   }
@@ -32,7 +42,7 @@ body {
     text-align:left;
     margin-left:40px;
     color:#fff;
-  }
+  } 
   .login-form {
     box-sizing:border-box;
     padding-top:15px;

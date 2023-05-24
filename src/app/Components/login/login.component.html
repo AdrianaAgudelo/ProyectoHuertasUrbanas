@@ -1,14 +1,16 @@
-<link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
 
+<!-- <link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'> -->
+  
+<body>
 <div class="container" id="container">
   <div class="form-container sign-in-container">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        
+            
   
-    <div class="login-form">
+    <div class="login-form" >
         <div class="login-header">
             <h1>Login</h1>
-          </div>
+        </div>
           
           <h3>Usuario:</h3>
           <mat-form-field>
@@ -17,33 +19,31 @@
             <strong>Requerido</strong>
             </mat-error>
            </mat-form-field>
-    <br>
+        <br>
         <h3>Password:</h3>
         <mat-form-field>
-    <input type="password" matInput placeholder="Password" formControlName="password"/>
-    <mat-error *ngIf ="loginForm.controls['password'].hasError('required')">
-        <strong>Requerido</strong>
-        </mat-error>
-    </mat-form-field>
-    <br>
-    <br>
-    <button mat-raised-button color="primary" type="submit" class="button button-block" class="login-button" mat-input>Iniciar Sesión</button>
-    <!-- <br>
-    <a class="sign-up">Sign Up!</a>
-    <br>
-    <h6 class="no-access">Can't access your account?</h6> -->
-</div>
+        <input type="password" matInput placeholder="Password" formControlName="password"/>
+        <mat-error *ngIf ="loginForm.controls['password'].hasError('required')">
+            <strong>Requerido</strong>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <br>
+        <button mat-raised-button color="primary" type="submit" class="button button-block" class="login-button" mat-input>Iniciar Sesión</button>
+    
+    </div>  
     </form>
+  </div>
  
-  </div>
+  .body
+        <div class="overlay-container">
+          <div class="overlay">
+              <div class="overlay-panel overlay-left">
+                  <!-- <img src="./src/app/Imagenes/HU.jpg"> -->
+              </div>
+          </div>   
+        </div> 
+</div>
 
-  
-  <div class="overlay-container">
-    <div class="overlay">
-        <div class="overlay-panel overlay-left">
-            <img src="./src/app/Imagenes/HU.jpg">
-        </div>
-    </div>   
-  </div>
-  
+
 
