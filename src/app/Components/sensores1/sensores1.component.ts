@@ -28,11 +28,6 @@ dataSource: MatTableDataSource<any>;
     const dialogRef = this.dialog.open(RegNuevoSensorComponent);
   }
   
-  Openmodal1 (){
-    
-  }
-
-
   ngOnInit(): void {
     this.getSensores();
   }

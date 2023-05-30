@@ -29,7 +29,7 @@ export class Solicitudes1Component implements OnInit  {
 
   openModal(){
     const dialogRef = this.dialog.open(SolicitudServicioComponent);
-    const dialogRef1 = this.dialog.open(SolicitudServicioComponent);
+    // const dialogRef1 = this.dialog.open(SolicitudServicioComponent);
 
       }
 
@@ -43,7 +43,8 @@ export class Solicitudes1Component implements OnInit  {
       this.loadTable([res[0]])
       this.dataSource.data=res
   });
-     
+  this.dataSource.paginator=this.paginator;
+  this.dataSource.sort= this.sort;
 
   }
 

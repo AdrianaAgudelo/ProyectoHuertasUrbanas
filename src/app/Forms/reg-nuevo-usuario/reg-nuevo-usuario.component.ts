@@ -15,9 +15,8 @@ export class RegNuevoUsuarioComponent implements OnInit{
     tipoDocumento: [null, Validators.required],
     numDocumento: [null, Validators.required],
     direccion: [null, Validators.required],
-    correo: [null, Validators.required],
+    correo: [null, Validators.email],
     
-   
   });
 
   constructor(private fb: FormBuilder, public forms:FormsService) {}

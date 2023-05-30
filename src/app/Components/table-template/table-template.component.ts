@@ -10,6 +10,7 @@ import { Usuario1Component } from '../usuario1/usuario1.component';
 import { RegNuevoUsuarioComponent } from 'src/app/Forms/reg-nuevo-usuario/reg-nuevo-usuario.component';
 import { SolicitudServicioComponent } from 'src/app/forms/solicitud-servicio/solicitud-servicio.component';
 import { FormsService } from 'src/app/services/forms.service';
+import { APIService } from 'src/app/services/api.service';
 
 
 
@@ -29,13 +30,14 @@ export class TableTemplateComponent implements AfterViewInit {
   /**
    *
    */
-  constructor(public dialog: MatDialog, public forms:FormsService) {
+  constructor(public dialog: MatDialog, public forms:FormsService, public api:APIService) {
     this.dataSource=new MatTableDataSource()
-    
+        
   }
   ngAfterViewInit(): void {
     this.dataSource.paginator=this.paginator;
     this.dataSource.sort= this.sort;
+    console.log(this.dataSource.data,"data");
   }
 
   applyFilter(event: Event) {
@@ -50,9 +52,9 @@ export class TableTemplateComponent implements AfterViewInit {
     }
   }
 
-  delete (object: any){
+  delete (id){
 
-    console.log("delete")
+    console.log("delete",id)
     Swal.fire({
       title: 'Está seguro?',
       text: "Esta acción no se puede revertir",
@@ -63,25 +65,39 @@ export class TableTemplateComponent implements AfterViewInit {
       confirmButtonText: 'Si, Borrar!'
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          'Borrado!',
-          'El archivo fue eliminado con éxito',
-          'success'
-        )
+        
+        switch (this.component) {
+          case "usuario1":
+            console.log("usuario1", id.idUsuario)
+            this.api.delete("Usuarios",id.idUsuario)
+            
+            break;
+          case "solicitudes1":
+            console.log("solicitudes1", id.id)
+            this.api.delete("Solicituds",id.id)
+            break;
+          case "sensores1":
+            console.log("sensores1", id.idSensor);
+            this.api.delete("Sensors",id.idSensor)
+            
+            break;
+        
+          default:
+            break;
+        }
+ 
       }
+      Swal.fire(
+        'Borrado!',
+        'El archivo fue eliminado con éxito',
+        'success'
+      )
     })
   }
 
   edit(object: any){
-    
-
-
-    
     Swal.fire(
       'Desea modificar este elemento?',
-
-      
-      
     ).then((result) => {
       if (result.isConfirmed) {
        
@@ -112,12 +128,5 @@ export class TableTemplateComponent implements AfterViewInit {
   }
 
 }
-// function openModal() {
-//   // throw new Error('Function not implemented.');
- 
-//     const dialogRef = this.dialog.open(Solicitudes1Component);
 
-   
-  
-// }
 
