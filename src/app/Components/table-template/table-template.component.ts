@@ -52,9 +52,9 @@ export class TableTemplateComponent implements AfterViewInit {
     }
   }
 
-  delete (id){
-
-    console.log("delete",id)
+  delete (element:any){
+    element.estado="Inactivo"
+    console.log("delete",element)
     Swal.fire({
       title: 'Está seguro?',
       text: "Esta acción no se puede revertir",
@@ -68,24 +68,27 @@ export class TableTemplateComponent implements AfterViewInit {
         
         switch (this.component) {
           case "usuario1":
-            console.log("usuario1", id.idUsuario)
-            this.api.delete("Usuarios",id.idUsuario)
-            
+            console.log("usuario1", element.idUsuario)
+            this.api.put("Usuarios",element.idUsuario, element)
+            window.location.reload();
             break;
+
           case "solicitudes1":
-            console.log("solicitudes1", id.id)
-            this.api.delete("Solicituds",id.id)
+            console.log("solicitudes1", element.id)
+            this.api.put("Solicituds",element.id, element)
+            window.location.reload();
             break;
-          case "sensores1":
-            console.log("sensores1", id.idSensor);
-            this.api.delete("Sensors",id.idSensor)
             
+          case "sensores1":
+            console.log("sensores1", element.idSensor);
+            this.api.put("Sensors",element.idSensor, element)
+            window.location.reload();
             break;
         
           default:
             break;
         }
- 
+ window.location.reload();
       }
       Swal.fire(
         'Borrado!',
